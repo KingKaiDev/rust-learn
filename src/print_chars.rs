@@ -1,16 +1,9 @@
-use std::cmp::Ordering;
+use std::cmp::{max, min};
 
 pub fn print_chars(form: char, to: char) {
-    let res: Ordering = form.cmp(&to);
-    if res == Ordering::Less {
-        for item in form..=to {
-            print!("{item}");
-        }
-    } else if res == Ordering::Greater {
-        for item in to..=form {
-            print!("{item}");
-        }
-    } else {
-        print!("{form}");
+    let min_char = min(form, to);
+    let max_char = max(form, to);
+    for item in min_char..=max_char {
+        print!("{item}");
     }
 }
